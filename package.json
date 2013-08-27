@@ -1,0 +1,27 @@
+{
+  "name": "Tail.cat",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wildhoney/Tail.cat/"
+  },
+  "author": "Adam Timberlake",
+  "license": "BSD",
+  "dependencies": {
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-jasmine": "~0.5.1",
+    "mailparser": "~0.3.6",
+    "imap": "~0.8.1"
+  }
+}
