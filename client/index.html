@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Tail.cat # version 0.0.1</title>
+    <script type="text/javascript" src="javascript/vendor/angular-1.0.7.js"></script>
+    <script type="text/javascript" src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+
+    <script type="text/javascript" src="javascript/app/Bootstrap.js"></script>
+    <script type="text/javascript" src="javascript/app/controllers/ApplicationController.js"></script>
+    <script type="text/javascript" src="javascript/app/controllers/LabelsController.js"></script>
+    <script type="text/javascript" src="javascript/app/controllers/MessagesController.js"></script>
+
+</head>
+<body ng-app="tailcatApp" ng-controller="ApplicationController">
+
+    <section class="labels" ng-controller="LabelsController">
+
+    </section>
+
+    <section class="messages" ng-controller="MessagesController">
+
+    </section>
+
+</body>
+</html>

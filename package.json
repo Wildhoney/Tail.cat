@@ -23,6 +23,8 @@
     "grunt-contrib-jasmine": "~0.5.1",
     "mailparser": "~0.3.6",
     "imap": "~0.8.1",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "express": "~3.3.6",
+    "socket.io-client": "~0.9.16"
   }
 }
