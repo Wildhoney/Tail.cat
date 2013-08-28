@@ -6,7 +6,7 @@ var express = require('express'),
 
 // Attempt to make a connection to the specified IMAP server.
 var imap = new Imap({
-    user        : 'adam.timberlake+tailcat@gmail.com',
+    user        : 'adam.timberlake@gmail.com',
     password    : '...',
     host        : 'imap.gmail.com',
     port        : 993,
@@ -14,32 +14,26 @@ var imap = new Imap({
     tlsOptions  : { rejectUnauthorized: false }
 });
 
-imap.connect(function connect(error) {
+imap.once('ready', function once() {
 
-    /**
-     * @method exit
-     * @return {Boolean}
-     */
-    var exit = function exit() {
-        console.error(error);
-        return false;
-    };
+    // Open the "INBOX" mailbox on the IMAP server.
+    imap.openBox('INBOX', true, function() {
 
-    if (error) {
-        // An error occurred, I'm afraid!
-        return exit();
-    }
+        // Find all of the messages since today that are unread.
+        imap.search(['ALL', ['SINCE', 'Aug 28, 2013']], function(error, results) {
 
-    // Open the 'INBOX' on the IMAP server.
-    imap.openBox('INBOX', false, function(error, box) {
+            // Throw an exception if we have an error.
+            if (error) throw error;
 
-        if (error) {
-            // An error occurred, I'm afraid!
-            return exit();
-        }
+            var messages = imap.fetch(results, { bodies: '' });
+            console.log(results.length + ' messages');
+
+        });
 
     });
 
 });
+
+imap.connect();
 
 app.listen(2150);
